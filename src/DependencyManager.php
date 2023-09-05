@@ -35,8 +35,8 @@ class DependencyManager {
         }
 
         if (isset($loadedConfig['services'])) {
-            foreach ($loadedConfig['services'] as $alias => $config) {
-                if (class_exists($alias)) {
+            foreach ($loadedConfig['services'] as $key => $config) {
+                if (class_exists($config['class'])) {
                     if (isset($config['arguments']) && is_array($config['arguments'])) {
                         $arguments = [];
                         foreach ($config['arguments'] as $argument) {
@@ -50,13 +50,13 @@ class DependencyManager {
                             }
                         }
                         // Instantiate the class with resolved arguments
-                        $this->container->add($alias, new $alias(...$arguments));
+                        $this->container->add($key, new $config['class'](...$arguments));
                     } else {
                         // Instantiate the class without constructor arguments
-                        $this->container->add($alias, new $alias());
+                        $this->container->add($key, new $config['class']());
                     }
                 } else {
-                    throw new \RuntimeException("Dependency class not found: $alias");
+                    throw new \RuntimeException("Dependency class not found: {$config['class']}");
                 }
             }
         }

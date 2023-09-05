@@ -55,25 +55,29 @@ $manager->loadDependenciesFromFile('path/to/dependencies.yaml');
 
 In your YAML configuration file (`dependencies.yaml`), you can define services and their arguments for injection.
 
-### Example Configuration
+### Setting Up Your Services/Dependencies Definitions
 
 Here's an example of a `dependencies.yaml` file that demonstrates how to define services and their arguments for injection:
 
 ```yaml
 services:
-    Namespace\TestClass:
-        arguments:
-            - 'testing!'
-    Namespace\MyCustomService:
-        arguments:
-            - '@Namespace\TestClass'
+  myService:
+    class: 'Namespace\MyService'
+    arguments:
+      - 'argument1'
+      - 'argument2'
+      - '@anotherService'  # Inject another service
 ```
 
-In this configuration:
+Here's a breakdown of the elements in the dependencies.yaml file:
 
-- The `dependencies.yaml` file defines services and their dependencies.
-- `Namespace\TestClass` is a service with constructor arguments.
-- `Namespace\MyCustomService` is another service that depends on `Namespace\TestClass`. It injects the `TestClass` instance as a constructor argument.
+- `services`: This section defines the services and their configurations.
+- `alias`: Your chosen alias for the service - `myService`.
+- `class`: The fully qualified class name (FQCN) of the service class.
+- `arguments`: An array of constructor arguments. Use "@" to reference other services.
+
+Once you've set up your `dependencies.yaml` file with the desired services and configurations, you can load and manage 
+these dependencies using the Dependency Injection Package.
 
 ## License
 
