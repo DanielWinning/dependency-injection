@@ -36,6 +36,7 @@ class DependencyManager {
 
         if (isset($loadedConfig['services'])) {
             foreach ($loadedConfig['services'] as $key => $config) {
+                var_dump($loadedConfig['services']);
                 if (class_exists($config['class'])) {
                     if (isset($config['arguments']) && is_array($config['arguments'])) {
                         $arguments = [];
