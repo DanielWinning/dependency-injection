@@ -1,8 +1,8 @@
 # Dependency Injection Package
 
-[![Latest Stable Version](https://poser.pugx.org/dannyxcii/dependency-injection/v)](//packagist.org/packages/dannyxcii/dependency-injection)
-[![Total Downloads](https://poser.pugx.org/dannyxcii/dependency-injection/downloads)](//packagist.org/packages/dannyxcii/dependency-injection)
-[![License](https://poser.pugx.org/dannyxcii/dependency-injection/license)](//packagist.org/packages/dannyxcii/dependency-injection)
+[![for-the-badge](https://poser.pugx.org/dannyxcii/dependency-injection/v)](//packagist.org/packages/dannyxcii/dependency-injection)
+[![for-the-badge](https://poser.pugx.org/dannyxcii/dependency-injection/downloads)](//packagist.org/packages/dannyxcii/dependency-injection)
+[![for-the-badge](https://poser.pugx.org/dannyxcii/dependency-injection/license)](//packagist.org/packages/dannyxcii/dependency-injection)
 
 A PHP package for managing dependencies and dependency injection.
 
