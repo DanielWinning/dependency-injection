@@ -2,7 +2,11 @@
 
 namespace DannyXCII\DependencyInjection;
 
-class DependencyContainer {
+use DannyXCII\DependencyInjection\Exception\NotFoundException;
+use Psr\Container\ContainerInterface;
+
+class DependencyContainer implements ContainerInterface
+{
     private array $container = [];
 
     /**
@@ -17,17 +21,28 @@ class DependencyContainer {
     }
 
     /**
-     * @param string $key
+     * @param $id
      *
      * @return mixed
      *
-     * @throws \Exception
+     * @throws NotFoundException
      */
-    public function get(string $key): mixed
+    public function get($id): mixed
     {
-        if (isset($this->container[$key])) {
-            return $this->container[$key];
+        if (!$this->has($id)) {
+            throw new NotFoundException('Dependency not found');
         }
-        throw new \Exception("Dependency not found: $key");
+
+        return $this->container[$id];
+    }
+
+    /**
+     * @param string $id
+     *
+     * @return bool
+     */
+    public function has(string $id): bool
+    {
+        return isset($this->container[$id]);
     }
 }
