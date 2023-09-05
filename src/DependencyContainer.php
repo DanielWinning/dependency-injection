@@ -30,7 +30,7 @@ class DependencyContainer implements ContainerInterface
     public function get($id): mixed
     {
         if (!$this->has($id)) {
-            throw new NotFoundException('Dependency not found');
+            throw new NotFoundException("Dependency not found $id");
         }
 
         return $this->container[$id];
