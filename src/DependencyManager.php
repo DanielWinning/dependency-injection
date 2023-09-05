@@ -36,7 +36,6 @@ class DependencyManager {
 
         if (isset($loadedConfig['services'])) {
             foreach ($loadedConfig['services'] as $key => $config) {
-                var_dump($loadedConfig['services']);
                 if (class_exists($config['class'])) {
                     if (isset($config['arguments']) && is_array($config['arguments'])) {
                         $arguments = [];
@@ -44,7 +43,6 @@ class DependencyManager {
                             if (is_string($argument) && str_starts_with($argument, '@')) {
                                 // Argument is a reference to another service
                                 $serviceAlias = ltrim($argument, '@');
-                                var_dump($serviceAlias);
                                 $arguments[] = $this->container->get($serviceAlias);
                             } else {
                                 // Argument is a plain value
