@@ -1,0 +1,11 @@
+{
+    "name": "dannyxcii/dependency-injection",
+    "description": "A Dependency Injection Package",
+    "type": "library",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "DannyXCII\\DependencyInjection\\": "src/"
+        }
+    }
+}
