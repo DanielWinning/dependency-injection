@@ -71,9 +71,10 @@ class DependencyContainer implements ContainerInterface
     private function resolveService(string $className): mixed
     {
         foreach ($this->container as $key => $value) {
-            if ($value instanceof $className) {
-                return $value;
-            }
+            var_dump($key, $value);
+//            if ($value instanceof $className) {
+//                return $value;
+//            }
         }
 
         throw new NotFoundException("Dependency not found: $className");
