@@ -29,16 +29,15 @@ class DependencyContainer implements ContainerInterface
      */
     public function get($id): mixed
     {
-        if (!$this->has($id)) {
-            throw new NotFoundException("Dependency not found $id");
+        if ($this->has($id)) {
+            return $this->container[$id];
         }
 
-        // Check if the service with the given key is a FQCN and try to resolve it.
         if (class_exists($id)) {
             return $this->resolveService($id);
         }
 
-        return $this->container[$id];
+        throw new NotFoundException("Dependency not found $id");
     }
 
     /**
