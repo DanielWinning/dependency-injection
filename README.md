@@ -6,6 +6,8 @@
 
 A PHP package for managing dependencies and dependency injection.
 
+---
+
 ## Installation
 
 You can install this package via [Composer](https://getcomposer.org/):
