@@ -49,7 +49,7 @@ class DependencyContainer implements ContainerInterface
     /**
      * @return array
      */
-    public function dumpServices(): array
+    public function getServices(): array
     {
         return $this->container;
     }
