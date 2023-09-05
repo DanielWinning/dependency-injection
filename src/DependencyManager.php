@@ -20,45 +20,98 @@ class DependencyManager {
      *
      * @return void
      *
-     * @throws \Exception
+     * @throws Exception\NotFoundException
      */
     public function loadDependenciesFromFile(string $filename): void
+    {
+        $loadedConfig = $this->loadConfigFile($filename);
+
+        if (isset($loadedConfig['services'])) {
+            $this->registerServices($loadedConfig['services']);
+        }
+    }
+
+    /**
+     * @param string $filename
+     *
+     * @return array
+     */
+    private function loadConfigFile(string $filename): array
     {
         $loadedConfig = Yaml::parseFile($filename);
 
         if (is_null($loadedConfig)) {
-            return;
+            return [];
         }
 
         if (!is_array($loadedConfig)) {
             throw new \RuntimeException("Invalid dependency configuration in YAML file: $filename");
         }
 
-        if (isset($loadedConfig['services'])) {
-            foreach ($loadedConfig['services'] as $key => $config) {
-                if (class_exists($config['class'])) {
-                    if (isset($config['arguments']) && is_array($config['arguments'])) {
-                        $arguments = [];
-                        foreach ($config['arguments'] as $argument) {
-                            if (is_string($argument) && str_starts_with($argument, '@')) {
-                                // Argument is a reference to another service
-                                $serviceAlias = ltrim($argument, '@');
-                                $arguments[] = $this->container->get($serviceAlias);
-                            } else {
-                                // Argument is a plain value
-                                $arguments[] = $argument;
-                            }
-                        }
-                        // Instantiate the class with resolved arguments
-                        $this->container->add($key, new $config['class'](...$arguments));
-                    } else {
-                        // Instantiate the class without constructor arguments
-                        $this->container->add($key, new $config['class']());
-                    }
-                } else {
-                    throw new \RuntimeException("Dependency class not found: {$config['class']}");
-                }
+        return $loadedConfig;
+    }
+
+    /**
+     * @param array $services
+     *
+     * @return void
+     *
+     * @throws Exception\NotFoundException
+     */
+    private function registerServices(array $services): void
+    {
+        foreach ($services as $key => $config) {
+            $this->validateServiceConfig($config);
+
+            $arguments = $this->resolveServiceArguments($config['arguments']);
+
+            $serviceInstance = $this->instantiateService($config['class'], $arguments);
+
+            $this->container->add($key, $serviceInstance);
+        }
+    }
+
+    private function validateServiceConfig(array $config): void
+    {
+        if (!isset($config['class']) || !class_exists($config['class'])) {
+            throw new \RuntimeException("Invalid service class in configuration");
+        }
+    }
+
+    /**
+     * @param array $arguments
+     *
+     * @return array
+     *
+     * @throws Exception\NotFoundException
+     */
+    private function resolveServiceArguments(array $arguments): array
+    {
+        $resolvedArguments = [];
+
+        foreach ($arguments as $argument) {
+            if (is_string($argument) && str_starts_with($argument, '@')) {
+                $serviceAlias = ltrim($argument, '@');
+                $resolvedArguments[] = $this->container->get($serviceAlias);
+            } else {
+                $resolvedArguments[] = $argument;
             }
+        }
+        return $resolvedArguments;
+    }
+
+    /**
+     * @param string $class
+     * @param array $arguments
+     *
+     * @return object
+     */
+    private function instantiateService(string $class, array $arguments): object
+    {
+        if (empty($arguments)) {
+            return new $class();
+        } else {
+            return new $class(...$arguments);
         }
     }
 }
