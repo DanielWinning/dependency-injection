@@ -22,7 +22,8 @@ class DependencyManager {
      *
      * @throws \Exception
      */
-    public function loadDependenciesFromFile(string $filename): void {
+    public function loadDependenciesFromFile(string $filename): void
+    {
         $loadedConfig = Yaml::parseFile($filename);
 
         if (is_null($loadedConfig)) {
