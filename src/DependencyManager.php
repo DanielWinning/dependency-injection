@@ -44,6 +44,7 @@ class DependencyManager {
                             if (is_string($argument) && str_starts_with($argument, '@')) {
                                 // Argument is a reference to another service
                                 $serviceAlias = ltrim($argument, '@');
+                                var_dump($serviceAlias);
                                 $arguments[] = $this->container->get($serviceAlias);
                             } else {
                                 // Argument is a plain value
