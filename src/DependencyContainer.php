@@ -33,6 +33,11 @@ class DependencyContainer implements ContainerInterface
             throw new NotFoundException("Dependency not found $id");
         }
 
+        // Check if the service with the given key is a FQCN and try to resolve it.
+        if (class_exists($id)) {
+            return $this->resolveService($id);
+        }
+
         return $this->container[$id];
     }
 
@@ -52,5 +57,25 @@ class DependencyContainer implements ContainerInterface
     public function getServices(): array
     {
         return $this->container;
+    }
+
+    /**
+     * Resolve a service by its fully qualified class name (FQCN).
+     *
+     * @param string $className
+     *
+     * @return mixed
+     *
+     * @throws NotFoundException
+     */
+    private function resolveService(string $className): mixed
+    {
+        foreach ($this->container as $key => $value) {
+            if ($value instanceof $className) {
+                return $value;
+            }
+        }
+
+        throw new NotFoundException("Dependency not found: $className");
     }
 }
