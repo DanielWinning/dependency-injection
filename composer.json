@@ -10,6 +10,12 @@
             "DannyXCII\\DependencyInjection\\": "src/"
         }
     },
-    "version": "1.0.1",
+    "authors": [
+        {
+            "name": "Daniel Winning",
+            "email": "daniel@winningsoftware.co.uk"
+        }
+    ],
+    "version": "1.0.2",
     "license": "GPL-3.0-or-later"
 }
