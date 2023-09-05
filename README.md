@@ -28,10 +28,10 @@ use Dannyxcii\DependencyInjection\DependencyContainer;
 $container = new DependencyContainer();
 
 // Add a dependency
-$container->add('myDependency', new MyDependency());
+$container->add(MyDependency::class, new MyDependency());
 
 // Retrieve a dependency
-$dependency = $container->get('myDependency');
+$dependency = $container->get(MyDependency::class);
 ```
 
 ### DependencyManager
