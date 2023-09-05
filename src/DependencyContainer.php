@@ -45,4 +45,12 @@ class DependencyContainer implements ContainerInterface
     {
         return isset($this->container[$id]);
     }
+
+    /**
+     * @return array
+     */
+    public function dumpServices(): array
+    {
+        return $this->container;
+    }
 }
