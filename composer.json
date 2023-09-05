@@ -2,7 +2,9 @@
     "name": "dannyxcii/dependency-injection",
     "description": "A Dependency Injection Package",
     "type": "library",
-    "require": {},
+    "require": {
+        "symfony/yaml": "^6.3"
+    },
     "autoload": {
         "psr-4": {
             "DannyXCII\\DependencyInjection\\": "src/"
