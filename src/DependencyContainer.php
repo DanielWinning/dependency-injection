@@ -1,8 +1,8 @@
 <?php
 
-namespace DannyXCII\DependencyInjection;
+namespace DannyXCII\DependencyInjectionComponent;
 
-use DannyXCII\DependencyInjection\Exception\NotFoundException;
+use DannyXCII\DependencyInjectionComponent\Exception\NotFoundException;
 use Psr\Container\ContainerInterface;
 
 class DependencyContainer implements ContainerInterface
