@@ -9,7 +9,7 @@ A PHP package for managing dependencies and dependency injection.
 You can install this package via [Composer](https://getcomposer.org/):
 
 ```bash
-composer require dannyxcii/dependency-injection
+composer require dannyxcii/dependency-injection-component
 ```
 
 ## Usage
