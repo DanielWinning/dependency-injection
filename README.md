@@ -20,7 +20,7 @@ The `DependencyContainer` class provides a simple way to manage and retrieve dep
 dependencies as follows:
 
 ```php
-use Dannyxcii\DependencyInjection\DependencyContainer;
+use DannyXCII\DependencyInjection\DependencyContainer;
 
 // Create a container
 $container = new DependencyContainer();
@@ -38,8 +38,8 @@ The `DependencyManager` class allows you to load dependencies from a YAML config
 `DependencyContainer`. Here's an example of how to use it:
 
 ```php
-use Dannyxcii\DependencyInjection\DependencyContainer;
-use Dannyxcii\DependencyInjection\DependencyManager;
+use DannyXCII\DependencyInjection\DependencyContainer;
+use DannyXCII\DependencyInjection\DependencyManager;
 
 // Create a container
 $container = new DependencyContainer();
@@ -69,7 +69,7 @@ Here's a breakdown of the elements in the dependencies.yaml file:
 
 - `services`: This section defines the services and their configurations.
 - `alias`: Your chosen alias for the service - `myService`.
-- `class`: The fully qualified class name (FQCN) of the service class.
+- `class`: The fully qualified class name of the service class.
 - `arguments`: An array of constructor arguments. Use "@" to reference other services.
 
 Once you've set up your `dependencies.yaml` file with the desired services and configurations, you can load and manage 
