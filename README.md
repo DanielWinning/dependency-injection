@@ -1,4 +1,13 @@
-# Dependency Injection Package
+# Luma | Dependency Injection Component
+
+<div>
+<!-- Version Badge -->
+<img src="https://img.shields.io/badge/Version-1.1.6-blue" alt="Version 1.1.6">
+<!-- PHP Coverage Badge -->
+<img src="https://img.shields.io/badge/PHP Coverage-18.87%25-red" alt="PHP Coverage 18.87%">
+<!-- License Badge -->
+<img src="https://img.shields.io/badge/License-GPL--3.0--or--later-34ad9b" alt="License GPL--3.0--or--later">
+</div>
 
 A PHP package for managing dependencies and dependency injection.
 
@@ -9,7 +18,7 @@ A PHP package for managing dependencies and dependency injection.
 You can install this package via [Composer](https://getcomposer.org/):
 
 ```bash
-composer require dannyxcii/dependency-injection-component
+composer require lumax/dependency-injection-component
 ```
 
 ## Usage

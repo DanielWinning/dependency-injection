@@ -1,0 +1,26 @@
+{
+  "name": "dependency-injection",
+  "version": "1.0.0",
+  "description": "A PHP package for managing dependencies and dependency injection.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielWinning/dependency-injection-component.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielWinning/dependency-injection-component/issues"
+  },
+  "homepage": "https://github.com/DanielWinning/dependency-injection-component#readme",
+  "devDependencies": {
+    "@dannyxcii/badger": "^0.4.1"
+  }
+}

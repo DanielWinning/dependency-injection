@@ -1,8 +1,8 @@
 <?php
 
-namespace DannyXCII\DependencyInjectionComponent;
+namespace Luma\DependencyInjectionComponent;
 
-use DannyXCII\DependencyInjectionComponent\Exception\NotFoundException;
+use Luma\DependencyInjectionComponent\Exception\NotFoundException;
 use Psr\Container\ContainerInterface;
 
 class DependencyContainer implements ContainerInterface

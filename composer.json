@@ -1,5 +1,5 @@
 {
-    "name": "dannyxcii/dependency-injection-component",
+    "name": "lumax/dependency-injection-component",
     "description": "A Dependency Injection Package",
     "type": "library",
     "require": {
@@ -11,12 +11,12 @@
     },
     "autoload": {
         "psr-4": {
-            "DannyXCII\\DependencyInjectionComponent\\": "src/",
-            "DannyXCII\\DependencyInjectionComponentTests\\": "tests/"
+            "Luma\\DependencyInjectionComponent\\": "src/",
+            "Luma\\DependencyInjectionComponentTests\\": "tests/"
         }
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit --testdox --colors=always tests"
+        "test": "php -d xdebug.mode=coverage ./vendor/bin/phpunit --testdox --colors=always --coverage-html coverage --coverage-clover coverage/coverage.xml --testdox-html coverage/testdox.html && npx badger --phpunit ./coverage/coverage.xml && npx badger --version ./composer.json && npx badger --license ./composer.json"
     },
     "authors": [
         {
@@ -24,6 +24,6 @@
             "email": "daniel@winningsoftware.co.uk"
         }
     ],
-    "version": "1.1.5",
+    "version": "1.1.6",
     "license": "GPL-3.0-or-later"
 }

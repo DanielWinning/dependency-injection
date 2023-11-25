@@ -1,6 +1,6 @@
 <?php
 
-namespace DannyXCII\DependencyInjectionComponent\Exception;
+namespace Luma\DependencyInjectionComponent\Exception;
 
 use Psr\Container\NotFoundExceptionInterface;
 

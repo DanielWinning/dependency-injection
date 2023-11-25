@@ -1,9 +1,9 @@
 <?php
 
-namespace DannyXCII\DependencyInjectionComponentTests;
+namespace Luma\DependencyInjectionComponentTests;
 
-use DannyXCII\DependencyInjectionComponent\DependencyContainer;
-use DannyXCII\DependencyInjectionComponent\Exception\NotFoundException;
+use Luma\DependencyInjectionComponent\DependencyContainer;
+use Luma\DependencyInjectionComponent\Exception\NotFoundException;
 use PHPUnit\Framework\TestCase;
 
 class DependencyContainerTest extends TestCase

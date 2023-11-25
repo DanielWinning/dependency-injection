@@ -1,6 +1,6 @@
 <?php
 
-namespace DannyXCII\DependencyInjectionComponent;
+namespace Luma\DependencyInjectionComponent;
 
 use Symfony\Component\Yaml\Yaml;
 
