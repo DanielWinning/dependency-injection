@@ -2,7 +2,7 @@
 
 <div>
 <!-- Version Badge -->
-<img src="https://img.shields.io/badge/Version-1.1.7-blue" alt="Version 1.1.7">
+<img src="https://img.shields.io/badge/Version-1.1.8-blue" alt="Version 1.1.8">
 <!-- PHP Coverage Badge -->
 <img src="https://img.shields.io/badge/PHP Coverage-18.87%25-red" alt="PHP Coverage 18.87%">
 <!-- License Badge -->
