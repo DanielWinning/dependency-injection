@@ -69,7 +69,7 @@ class DependencyContainer implements ContainerInterface
      */
     private function resolveService(string $className): mixed
     {
-        foreach ($this->container as $key => $value) {
+        foreach ($this->container as $value) {
             if ($value instanceof $className) {
                 return $value;
             }
