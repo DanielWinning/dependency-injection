@@ -50,6 +50,19 @@ class DependencyContainerTest extends TestCase
 
     /**
      * @return void
+     */
+    public function testGetServices(): void
+    {
+        $container = new DependencyContainer();
+
+        $service = new \stdClass();
+        $container->add('test', $service);
+
+        $this->assertEquals(['test' => $service], $container->getServices());
+    }
+
+    /**
+     * @return void
      *
      * @throws NotFoundException
      */
@@ -65,5 +78,12 @@ class DependencyContainerTest extends TestCase
 
         $this->assertSame($service, $resolvedService);
         $this->assertEquals($service->testString, $resolvedService->testString);
+
+        $resolvedService = $container->get('\stdClass');
+        $this->assertSame($service, $resolvedService);
+        $this->assertEquals($service->testString, $resolvedService->testString);
+
+        $this->expectException(NotFoundException::class);
+        $container->get('\Exception');
     }
 }
