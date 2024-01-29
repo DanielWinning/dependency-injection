@@ -29,7 +29,7 @@ The `DependencyContainer` class provides a simple way to manage and retrieve dep
 dependencies as follows:
 
 ```php
-use DannyXCII\DependencyInjection\DependencyContainer;
+use Luma\DependencyInjectionComponent\DependencyContainer;
 
 // Create a container
 $container = new DependencyContainer();
@@ -47,8 +47,8 @@ The `DependencyManager` class allows you to load dependencies from a YAML config
 `DependencyContainer`. Here's an example of how to use it:
 
 ```php
-use DannyXCII\DependencyInjection\DependencyContainer;
-use DannyXCII\DependencyInjection\DependencyManager;
+use Luma\DependencyInjectionComponent\DependencyContainer;
+use Luma\DependencyInjectionComponent\DependencyManager;
 
 // Create a container
 $container = new DependencyContainer();
