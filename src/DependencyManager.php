@@ -4,7 +4,8 @@ namespace Luma\DependencyInjectionComponent;
 
 use Symfony\Component\Yaml\Yaml;
 
-class DependencyManager {
+class DependencyManager
+{
     private DependencyContainer $container;
 
     /**
@@ -63,7 +64,7 @@ class DependencyManager {
         foreach ($services as $key => $config) {
             $this->validateServiceConfig($config);
 
-            $arguments = $this->resolveServiceArguments($config['arguments']);
+            $arguments = $this->resolveServiceArguments($config['arguments'] ?? []);
 
             $serviceInstance = $this->instantiateService($config['class'], $arguments);
 
@@ -71,6 +72,11 @@ class DependencyManager {
         }
     }
 
+    /**
+     * @param array $config
+     *
+     * @return void
+     */
     private function validateServiceConfig(array $config): void
     {
         if (!isset($config['class']) || !class_exists($config['class'])) {
