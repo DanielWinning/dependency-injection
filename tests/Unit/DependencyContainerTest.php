@@ -1,6 +1,6 @@
 <?php
 
-namespace Luma\DependencyInjectionComponentTests;
+namespace Luma\Tests;
 
 use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\Exception\NotFoundException;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Luma\DependencyInjectionComponentTests;
+namespace Luma\Tests;
 
 use Luma\DependencyInjectionComponent\DependencyContainer;
 use Luma\DependencyInjectionComponent\DependencyManager;
@@ -53,10 +53,56 @@ class DependencyManagerTest extends TestCase
     }
 
     /**
+     * @return void
+     *
+     * @throws NotFoundException
+     */
+    public function testEmptyServiceConfigReturnsEmptyArray(): void
+    {
+        $container = new DependencyContainer();
+        $manager = new DependencyManager($container);
+
+        $manager->loadDependenciesFromFile($this->getTestServiceConfigPath('_empty'));
+
+        $this->assertEquals([], $container->getServices());
+    }
+
+    /**
+     * @return void
+     *
+     * @throws NotFoundException
+     */
+    public function testInvalidServiceConfigThrowsRuntimeException(): void
+    {
+        $container = new DependencyContainer();
+        $manager = new DependencyManager($container);
+
+        $this->expectException(\RuntimeException::class);
+        $manager->loadDependenciesFromFile($this->getTestServiceConfigPath('_invalid_class'));
+    }
+
+    /**
+     * @return void
+     *
+     * @throws NotFoundException
+     */
+    public function testInvalidFileTypeThrowsRuntimeException(): void
+    {
+        $container = new DependencyContainer();
+        $manager = new DependencyManager($container);
+
+        self::expectException(\RuntimeException::class);
+        $manager->loadDependenciesFromFile($this->getTestServiceConfigPath('', 'services.json'));
+    }
+
+    /**
+     * @param string $append
+     *
+     * @param string|null $customName
      * @return string
      */
-    private function getTestServiceConfigPath(): string
+    private function getTestServiceConfigPath(string $append = '', string $customName = null): string
     {
-        return sprintf('%s/%s', dirname(__FILE__, 3), 'services.yaml');
+        return sprintf('%s/%s', dirname(__FILE__, 2), $customName ?? "services$append.yaml");
     }
 }

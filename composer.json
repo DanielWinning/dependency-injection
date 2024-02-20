@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Luma\\DependencyInjectionComponentTests\\": "tests/"
+            "Luma\\Tests\\": "tests/Unit/"
         }
     },
     "scripts": {

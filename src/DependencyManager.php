@@ -39,14 +39,14 @@ class DependencyManager
      */
     private function loadConfigFile(string $filename): array
     {
+        if (!str_ends_with($filename, '.yaml')) {
+            throw new \RuntimeException("Invalid dependency configuration in YAML file: $filename");
+        }
+
         $loadedConfig = Yaml::parseFile($filename);
 
         if (is_null($loadedConfig)) {
             return [];
-        }
-
-        if (!is_array($loadedConfig)) {
-            throw new \RuntimeException("Invalid dependency configuration in YAML file: $filename");
         }
 
         return $loadedConfig;
