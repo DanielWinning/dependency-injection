@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
@@ -9,6 +10,16 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+            }
+        }
+        stage('Updating and pushing changes') {
+            when {
+                not {
+                    branch 'main'
+                }
+            }
+            steps {
+                echo 'Updating and pushing changes to the repository'
             }
         }
         stage('Deploy') {
