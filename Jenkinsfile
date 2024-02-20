@@ -19,7 +19,7 @@ pipeline {
                 }
             }
             steps {
-                echo 'Updating and pushing changes to the repository...'
+                echo 'Updating and pushing changes to the repository'
             }
         }
         stage('Deploy') {
