@@ -28,12 +28,12 @@ pipeline {
                 }
             }
             steps {
-//                 sh '''
-//                 cpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/composer.json
-//                 chpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/CHANGELOG.md
-//                 rpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/README.md
-//                 curl -s https://pkg.dannyxcii.co.uk/scripts/composer-updater.sh | bash -s -- "$cpath" "$chpath" "$rpath" dev
-//                 '''
+                sh '''
+                cpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/composer.json
+                chpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/CHANGELOG.md
+                rpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/README.md
+                curl -s https://pkg.dannyxcii.co.uk/scripts/composer-updater.sh | bash -s -- "$cpath" "$chpath" "$rpath" dev
+                '''
                 echo pwd()
             }
         }
