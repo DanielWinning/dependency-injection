@@ -2,6 +2,7 @@
     "name": "lumax/dependency-injection-component",
     "description": "A Dependency Injection Package",
     "type": "library",
+    "minimum-stability": "stable",
     "require": {
         "symfony/yaml": "^6.3",
         "psr/container": "^2.0"

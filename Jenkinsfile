@@ -1,25 +1,35 @@
 pipeline {
     agent any
 
+    options { skipDefaultCheckout() }
+
     stages {
+        stage('Checkout') {
+            steps {
+                cleanWs()
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building...'
+                sh 'composer install'
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'composer test'
             }
         }
         stage('Updating and pushing changes') {
             when {
-                not {
-                    branch 'main'
-                }
+                branch 'dev'
             }
             steps {
-                echo 'Updating and pushing changes to the repository'
+            // I need to give the path to the Jenkins workspace as the first argument
+                //sh 'curl -s https://pkg.dannyxcii.co.uk/scripts/composer-updater.sh | bash -s -- /var/lib/jenkins/workspace/dependency-injection-component/'
+                echo pwd()
             }
         }
         stage('Deploy') {
