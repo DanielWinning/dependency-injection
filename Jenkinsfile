@@ -32,9 +32,8 @@ pipeline {
                 cpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/composer.json
                 chpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/CHANGELOG.md
                 rpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/README.md
-                curl -s https://pkg.dannyxcii.co.uk/scripts/composer-updater.sh | bash -s -- "$cpath" "$chpath" "$rpath" dev
+                curl -s https://pkg.dannyxcii.co.uk/scripts/composer-updater.sh | bash -s -- "$cpath" "$chpath" "$rpath" origin/dev
                 '''
-                echo pwd()
             }
         }
         stage('Deploy') {
