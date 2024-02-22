@@ -12,6 +12,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                println GIT_BRANCH
                 sh 'composer install'
                 sh 'npm install'
             }
@@ -29,10 +30,10 @@ pipeline {
             }
             steps {
                 sh '''
-                cpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/composer.json
-                chpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/CHANGELOG.md
-                rpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/README.md
-                curl -s https://pkg.dannyxcii.co.uk/scripts/composer-updater.sh | bash -s -- "$cpath" "$chpath" "$rpath" dev
+                #cpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/composer.json
+                #chpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/CHANGELOG.md
+                #rpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/README.md
+                #curl -s https://pkg.dannyxcii.co.uk/scripts/composer-updater.sh | bash -s -- "$cpath" "$chpath" "$rpath" dev
                 '''
             }
         }
