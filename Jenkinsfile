@@ -23,7 +23,9 @@ pipeline {
         }
         stage('Updating and pushing changes') {
             when {
-                branch 'dev'
+                not {
+                    branch 'main'
+                }
             }
             steps {
             // I need to give the path to the Jenkins workspace as the first argument
