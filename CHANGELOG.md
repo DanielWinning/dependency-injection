@@ -2,8 +2,7 @@
 
 ### [Unreleased]
 [patch]
-- Add tag creation step to pipeline for main branch
-- Remove tag creation step from pipeline for dev branch
+- Add tag creation step to main branch pipeline
 
 ### [1.2.0] - 2024-02-22
 - Added CHANGELOG
