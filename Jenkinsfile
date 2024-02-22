@@ -14,7 +14,6 @@ pipeline {
             steps {
                 sh 'composer install'
                 sh 'npm install'
-                sh 'npm run build'
             }
         }
         stage('Test') {
