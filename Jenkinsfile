@@ -42,7 +42,16 @@ pipeline {
             }
 
             steps {
-                echo 'Deploying....'
+                sh '''
+                git global --config user.email "Jenkins@user.noreply.github.com"
+                git global --config user.name "Jenkins [bot]"
+                git stash
+                git fetch origin main
+                git checkout main
+                current_version=$(git describe --tags --abbrev=0)
+                git tag "$current_version"
+                git push --tags
+                '''
             }
         }
     }
