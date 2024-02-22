@@ -1,7 +1,6 @@
 # Luma | Dependency Injection Component Change Log
 
-## [Unreleased]
-[minor]
+## [1.2.0] - 2024-02-22
 - Added CHANGELOG
 - Added automated build pipeline
 - `DependencyManager` now throws a RuntimeException if `loadDependenciesFromFile` is called with an invalid filetype (such as JSON).
