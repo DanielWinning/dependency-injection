@@ -7,8 +7,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 cleanWs()
-                commit = checkout scm
-                println commit.GIT_URL
+                checkout scm
+                echo env.BRANCH_NAME
             }
         }
         stage('Build') {
