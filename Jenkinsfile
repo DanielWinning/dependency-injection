@@ -7,12 +7,12 @@ pipeline {
         stage('Checkout') {
             steps {
                 cleanWs()
-                checkout scm
+                commit = checkout scm
+                println commit.GIT_URL
             }
         }
         stage('Build') {
             steps {
-                sh 'echo "$GIT_BRANCH"'
                 sh 'composer install'
                 sh 'npm install'
             }
