@@ -10,8 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/DanielWinning/dependency-injection-component.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Daniel Winning <daniel@winningsoftware.co.uk>",
   "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/DanielWinning/dependency-injection-component/issues"
