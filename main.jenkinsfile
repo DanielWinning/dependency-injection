@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    options { skipDefaultCheckout() }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                cleanWs()
+                checkout scm
+                echo env.BRANCH_NAME
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'composer install'
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'composer test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'git global --config user.email "Jenkins@user.noreply.github.com"'
+                sh 'git global --config user.name "Jenkins [bot]"'
+                sh 'git stash'
+                sh 'git fetch origin main'
+                sh 'git checkout main'
+                sh 'current_version=$(git describe --tags --abbrev=0)'
+                sh 'git tag "$current_version"'
+                sh 'git push --tags'
+            }
+        }
+    }
+}

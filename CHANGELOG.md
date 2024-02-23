@@ -1,7 +1,7 @@
 # Luma | Dependency Injection Component Change Log
 
-### [1.2.1] - 2024-02-22
-- Add tag creation step to main branch pipeline
+### [1.2.1] - 2024-02-23
+- Update build pipelines
 
 ### [1.2.0] - 2024-02-22
 - Added CHANGELOG
