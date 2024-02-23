@@ -1,6 +1,6 @@
 # Luma | Dependency Injection Component Change Log
 
-### [1.2.1] - 2024-02-23
+### [Unreleased]
 - Update build pipelines
 
 ### [1.2.0] - 2024-02-22
