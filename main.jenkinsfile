@@ -24,14 +24,15 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'git config --global user.email "Jenkins@user.noreply.github.com"'
-                sh 'git config --global user.name "Jenkins [bot]"'
-                sh 'git stash'
-                sh 'git fetch origin main'
-                sh 'git checkout main'
-                sh 'current_version=$(git describe --tags --abbrev=0)'
-                sh 'git tag "$current_version"'
-                sh 'git push --tags'
+                sh '''
+                git config --global user.email "Jenkins@user.noreply.github.com"
+                git config --global user.name "Jenkins [bot]"
+                git stash
+                git fetch origin main
+                git checkout main
+                git tag "$(git describe --tags --abbrev=0)"
+                git push --tags
+                '''
             }
         }
     }
