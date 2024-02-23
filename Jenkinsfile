@@ -24,9 +24,7 @@ pipeline {
         }
         stage('Updating and pushing changes') {
             when {
-                not {
-                    branch 'main'
-                }
+                branch 'origin/dev'
             }
             steps {
                 sh '''
