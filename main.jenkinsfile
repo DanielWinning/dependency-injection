@@ -24,8 +24,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'git global --config user.email "Jenkins@user.noreply.github.com"'
-                sh 'git global --config user.name "Jenkins [bot]"'
+                sh 'git config --global user.email "Jenkins@user.noreply.github.com"'
+                sh 'git config --global user.name "Jenkins [bot]"'
                 sh 'git stash'
                 sh 'git fetch origin main'
                 sh 'git checkout main'
