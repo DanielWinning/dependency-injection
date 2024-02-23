@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                println GIT_BRANCH
+                sh 'echo "$GIT_BRANCH"'
                 sh 'composer install'
                 sh 'npm install'
             }
