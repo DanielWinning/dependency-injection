@@ -30,7 +30,8 @@ pipeline {
                 git stash
                 git fetch origin main
                 git checkout main
-                git tag "$(git describe --tags --abbrev=0)"
+                VERSION=$(php -r "echo json_decode(file_get_contents('composer.json'))->version;")
+                git tag "$VERSION"
                 git push --tags
                 '''
             }
