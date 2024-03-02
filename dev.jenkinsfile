@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        PKG_KEY = credentials('pkg-key')
+        PKG_PASSPHRASE = credentials('pkg-passphrase')
+    }
+
     options { skipDefaultCheckout() }
 
     stages {
@@ -29,6 +34,14 @@ pipeline {
                 chpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/CHANGELOG.md
                 rpath=/var/lib/jenkins/workspace/dependency-injection-component/dev/README.md
                 curl -s https://pkg.dannyxcii.co.uk/scripts/composer-updater.sh | bash -s -- "$cpath" "$chpath" "$rpath" dev
+                '''
+            }
+        }
+        stage('Mark GitHub Checks Complete') {
+            steps {
+                sh '''
+                ENCRYPTED_PKG_KEY=$(echo $PKG_KEY | openssl enc -aes-256-cbc -a -salt -pass pass:$PASSPHRASE)
+                curl -s -H "X-Pkg-Key: $ENCRYPTED_PKG_KEY" https://pkg.dannyxcii.co.uk/webhook/check/complete/dependency-injection-component
                 '''
             }
         }
