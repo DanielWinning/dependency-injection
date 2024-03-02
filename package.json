@@ -1,18 +1,11 @@
 {
-  "name": "dependency-injection",
-  "version": "1.0.0",
   "description": "A PHP package for managing dependencies and dependency injection.",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DanielWinning/dependency-injection-component.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Daniel Winning <daniel@winningsoftware.co.uk>",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/DanielWinning/dependency-injection-component/issues"
   },
