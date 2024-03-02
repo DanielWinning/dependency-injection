@@ -8,7 +8,6 @@ pipeline {
             steps {
                 cleanWs()
                 checkout scm
-                echo env.BRANCH_NAME
             }
         }
         stage('Build') {
