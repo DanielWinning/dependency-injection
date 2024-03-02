@@ -38,7 +38,7 @@ pipeline {
         stage('Mark GitHub Checks Complete') {
             steps {
                 sh '''
-                HASHED_KEY=$(echo -n PKG_KEY | sha256sum | awk '{print $1}')
+                HASHED_KEY=$(echo -n $PKG_KEY | sha256sum | awk '{print $1}')
                 curl -s -H "X-Pkg-Key: $HASHED_KEY" https://pkg.dannyxcii.co.uk/webhook/check/complete/dependency-injection-component
                 '''
             }
