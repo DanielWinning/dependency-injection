@@ -1,6 +1,9 @@
 # Luma | Dependency Injection Component Change Log
 
 ### [Unreleased]
+[patch]
+- Minor housekeeping; `package.json` cleanup, `composer.json` cleanup
+- Update build pipelines
 
 ### [1.2.1] - 2024-02-23
 - Update build pipelines
