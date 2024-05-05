@@ -2,6 +2,7 @@
 
 namespace Luma\DependencyInjectionComponent;
 
+use Luma\Framework\Luma;
 use Symfony\Component\Yaml\Yaml;
 
 class DependencyManager
@@ -99,6 +100,8 @@ class DependencyManager
             if (is_string($argument) && str_starts_with($argument, '@')) {
                 $serviceAlias = ltrim($argument, '@');
                 $resolvedArguments[] = $this->container->get($serviceAlias);
+            } elseif (is_string($argument) && str_starts_with($argument, ':') && str_ends_with($argument, ':')) {
+                $resolvedArguments[] = Luma::getConfigParam(trim($argument, ':'));
             } else {
                 $resolvedArguments[] = $argument;
             }
